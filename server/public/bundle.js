@@ -119,7 +119,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Home */ "./client/components/Home.jsx");
 /* harmony import */ var _components_Battle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Battle */ "./client/components/Battle.jsx");
 /* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/History */ "./client/components/History.jsx");
-/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_History__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 //import './tailwind.css'
 
@@ -141,7 +140,7 @@ function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     exact: true,
     path: "/History",
-    component: (_components_History__WEBPACK_IMPORTED_MODULE_3___default())
+    component: _components_History__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
 
@@ -179,13 +178,13 @@ function Battle() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "pt-2 pb-2 pl-10 bg-red-400 text-white xl:text-3xl lg:text-xl md:text-md sm:text-sm"
+    className: "pt-2 pb-2 pl-10 bg-red-400 text-white\r xl:text-3xl\r lg:text-xl\r md:text-md\r sm:text-sm"
   }, " ", "Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-2 mb-2 border-2 border-black rounded-xl grid grid-cols-3 gap-8"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].id, ".png")
+    src: "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].id, ".png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
@@ -193,13 +192,13 @@ function Battle() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Random"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2"
   }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].id, ".webp")
+    src: "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].id, ".webp")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-red-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 1: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-    className: "w-16 text-xs border-0 focus:outline-none"
+    className: "w-16 text-xs\r border-0 focus:outline-none"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: "NA"
   }, "Jared"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -215,13 +214,13 @@ function Battle() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + "/images/Pokeball_tiny.webp"
+    src: "/images/Pokeball_tiny.webp"
   }), " ", "Fight"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-blue-400"
   }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 2: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-    className: "w-16 text-xs border-0 focus:outline-none"
+    className: "w-16 text-xs\r border-0 focus:outline-none"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: "NA"
   }, "Jared"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
@@ -243,9 +242,29 @@ function Battle() {
 /*!***************************************!*\
   !*** ./client/components/History.jsx ***!
   \***************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
+
+
+function History() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Battle History"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "col"
+  }, "Winners", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Name"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Points")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "col"
+  }, "Losers")));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (History);
 
 /***/ }),
 
@@ -273,8 +292,10 @@ function Home() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: '/Battle'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "../../images/pokeball-spinning.gif"
-  }))))));
+    src: "../../public/images/pokeball-spinning.gif"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "../public/images/pokeball-spinning.gif"
+  })))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
@@ -299,7 +320,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function PokemonHeader() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: " text-center text-black p-10 bg-yellow-300 flex h-auto w-auto sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-6xl"
+    className: "\r text-center text-black\r p-10 bg-yellow-300 flex\r h-auto w-auto\r sm:text-xl\r md:text-2xl\r lg:text-4xl\r xl:text-6xl\r 2xl:text-6xl"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-1 w-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
@@ -34761,7 +34782,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById("app"));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById('app'));
 });
 })();
 
