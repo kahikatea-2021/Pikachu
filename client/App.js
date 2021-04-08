@@ -1,19 +1,21 @@
-import './tailwind.css'
-import { Route } from 'react-router-dom'
-import PokemonHeader from './client/components/PokemonHeader'
-import Home from './client/components/Home'
-import Battle from './client/components/Battle'
+//import './tailwind.css'
+import { Route } from "react-router-dom";
+import PokemonHeader from "./components/PokemonHeader";
+import Home from "./components/Home";
+import Battle from "./components/Battle";
+import History from "./components/History";
 
-import React from 'react'
+import React from "react";
 
-function App () {
+function App() {
   return (
     <>
-    < PokemonHeader />
-        <Route exact path = '/' component={Home}/>
-        <Route exact path ='/Battle' component={Battle} />
+      <PokemonHeader />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/Battle" component={Battle} />
+      <Route exact path="/History" component={History} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
