@@ -1,9 +1,8 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('pokemon', table => {
-      table.increments('id')
+      table.increments('id').primary()
       table.string('name')
-      table.integer('cp')
   })
 };
 
