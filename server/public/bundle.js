@@ -161,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/pokemon'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/data/pokemon */ "./src/data/pokemon.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
@@ -180,20 +180,20 @@ function Battle() {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: "pt-2 pb-2 pl-10 bg-red-400 text-white xl:text-3xl lg:text-xl md:text-md sm:text-sm"
-  }, " Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, " ", "Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-2 mb-2 border-2 border-black rounded-xl grid grid-cols-3 gap-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/pokemon'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())[pokemon2].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + "/images/front_sprites/Spr_1y_".concat(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/pokemon'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())[pokemon2].id, ".png")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: process.env.PUBLIC_URL + "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].id, ".png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Random"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2"
-  }, Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/pokemon'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())[pokemon1].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + "/images/back_sprites/Spr_b_g1_".concat(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../data/pokemon'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())[pokemon1].id, ".webp")
+  }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: process.env.PUBLIC_URL + "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].id, ".webp")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-red-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
@@ -215,8 +215,8 @@ function Battle() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: process.env.PUBLIC_URL + '/images/Pokeball_tiny.webp'
-  }), "  Fight"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    src: process.env.PUBLIC_URL + "/images/Pokeball_tiny.webp"
+  }), " ", "Fight"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-blue-400"
   }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
@@ -318,6 +318,476 @@ function PokemonHeader() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PokemonHeader);
+
+/***/ }),
+
+/***/ "./src/data/pokemon.js":
+/*!*****************************!*\
+  !*** ./src/data/pokemon.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  Pokemon: [{
+    id: 1,
+    name: 'Bulbasaur'
+  }, {
+    id: 2,
+    name: 'Ivysaur'
+  }, {
+    id: 3,
+    name: 'Venusaur'
+  }, {
+    id: 4,
+    name: 'Charmander'
+  }, {
+    id: 5,
+    name: 'Charmeleon'
+  }, {
+    id: 6,
+    name: 'Charizard'
+  }, {
+    id: 7,
+    name: 'Squirtle'
+  }, {
+    id: 8,
+    name: 'Wartortle'
+  }, {
+    id: 9,
+    name: 'Blastoise'
+  }, {
+    id: 10,
+    name: 'Caterpie'
+  }, {
+    id: 11,
+    name: 'Metapod'
+  }, {
+    id: 12,
+    name: 'Butterfree'
+  }, {
+    id: 13,
+    name: 'Weedle'
+  }, {
+    id: 14,
+    name: 'Kakuna'
+  }, {
+    id: 15,
+    name: 'Beedrill'
+  }, {
+    id: 16,
+    name: 'Pidgey'
+  }, {
+    id: 17,
+    name: 'Pidgeotto'
+  }, {
+    id: 18,
+    name: 'Pidgeotto'
+  }, {
+    id: 19,
+    name: 'Rattata'
+  }, {
+    id: 20,
+    name: 'Raticate'
+  }, {
+    id: 21,
+    name: 'Spearow'
+  }, {
+    id: 22,
+    name: 'Fearow'
+  }, {
+    id: 23,
+    name: 'Ekans'
+  }, {
+    id: 24,
+    name: 'Arbok'
+  }, {
+    id: 25,
+    name: 'Pikachu'
+  }, {
+    id: 26,
+    name: 'Raichu'
+  }, {
+    id: 27,
+    name: 'Sandshrew'
+  }, {
+    id: 28,
+    name: 'Sandslash'
+  }, {
+    id: 29,
+    name: 'Nidoran♀'
+  }, {
+    id: 30,
+    name: 'Nidorina'
+  }, {
+    id: 31,
+    name: 'Nidoqueen'
+  }, {
+    id: 32,
+    name: 'Nidoran♂'
+  }, {
+    id: 33,
+    name: 'Nidorino'
+  }, {
+    id: 34,
+    name: 'Nidoking'
+  }, {
+    id: 35,
+    name: 'Clefairy'
+  }, {
+    id: 36,
+    name: 'Clefable'
+  }, {
+    id: 37,
+    name: 'Vulpix'
+  }, {
+    id: 38,
+    name: 'Ninetails'
+  }, {
+    id: 39,
+    name: 'Jigglypuff'
+  }, {
+    id: 40,
+    name: 'Wigglytuff'
+  }, {
+    id: 41,
+    name: 'Zubat'
+  }, {
+    id: 42,
+    name: 'Golbat'
+  }, {
+    id: 43,
+    name: 'Oddish'
+  }, {
+    id: 44,
+    name: 'Gloom'
+  }, {
+    id: 45,
+    name: 'Vileplume'
+  }, {
+    id: 46,
+    name: 'Paras'
+  }, {
+    id: 47,
+    name: 'Parasect'
+  }, {
+    id: 48,
+    name: 'Venonat'
+  }, {
+    id: 49,
+    name: 'Venomoth'
+  }, {
+    id: 50,
+    name: 'Diglett'
+  }, {
+    id: 51,
+    name: 'Dugtrio'
+  }, {
+    id: 52,
+    name: 'Meowth'
+  }, {
+    id: 53,
+    name: 'Persian'
+  }, {
+    id: 54,
+    name: 'Psyduck'
+  }, {
+    id: 55,
+    name: 'Golduck'
+  }, {
+    id: 56,
+    name: 'Mankey'
+  }, {
+    id: 57,
+    name: 'Primeape'
+  }, {
+    id: 58,
+    name: 'Growlithe'
+  }, {
+    id: 59,
+    name: 'Arcanine'
+  }, {
+    id: 60,
+    name: 'Poliwag'
+  }, {
+    id: 61,
+    name: 'Poliwhirl'
+  }, {
+    id: 62,
+    name: 'Poliwrath'
+  }, {
+    id: 63,
+    name: 'Abra'
+  }, {
+    id: 64,
+    name: 'Kadabra'
+  }, {
+    id: 65,
+    name: 'Alakazam'
+  }, {
+    id: 66,
+    name: 'Machop'
+  }, {
+    id: 67,
+    name: 'Machoke'
+  }, {
+    id: 68,
+    name: 'Machamp'
+  }, {
+    id: 69,
+    name: 'Bellsprout'
+  }, {
+    id: 70,
+    name: 'Weepinbell'
+  }, {
+    id: 71,
+    name: 'Victreebel'
+  }, {
+    id: 72,
+    name: 'Tentacool'
+  }, {
+    id: 73,
+    name: 'Tentracruel'
+  }, {
+    id: 74,
+    name: 'Geodude'
+  }, {
+    id: 75,
+    name: 'Graveler'
+  }, {
+    id: 76,
+    name: 'Golem'
+  }, {
+    id: 77,
+    name: 'Ponyta'
+  }, {
+    id: 78,
+    name: 'Rapidash'
+  }, {
+    id: 79,
+    name: 'Slowpoke'
+  }, {
+    id: 80,
+    name: 'Slowbro'
+  }, {
+    id: 81,
+    name: 'Magnemite'
+  }, {
+    id: 82,
+    name: 'Magneton'
+  }, {
+    id: 83,
+    name: 'Farfetch\'d'
+  }, {
+    id: 84,
+    name: 'Doduo'
+  }, {
+    id: 85,
+    name: 'Dodrio'
+  }, {
+    id: 86,
+    name: 'Seel'
+  }, {
+    id: 87,
+    name: 'Dewgong'
+  }, {
+    id: 88,
+    name: 'Grimer'
+  }, {
+    id: 89,
+    name: 'Muk'
+  }, {
+    id: 90,
+    name: 'Shellder'
+  }, {
+    id: 91,
+    name: 'Cloyster'
+  }, {
+    id: 92,
+    name: 'Gastly'
+  }, {
+    id: 93,
+    name: 'Haunter'
+  }, {
+    id: 94,
+    name: 'Gengar'
+  }, {
+    id: 95,
+    name: 'Onix'
+  }, {
+    id: 96,
+    name: 'Drowzee'
+  }, {
+    id: 97,
+    name: 'Hypno'
+  }, {
+    id: 98,
+    name: 'Krabby'
+  }, {
+    id: 99,
+    name: 'Kingler'
+  }, {
+    id: 100,
+    name: 'Voltorb'
+  }, {
+    id: 101,
+    name: 'Electrode'
+  }, {
+    id: 102,
+    name: 'Exeggcute'
+  }, {
+    id: 103,
+    name: 'Exeggutor'
+  }, {
+    id: 104,
+    name: 'Cubone'
+  }, {
+    id: 105,
+    name: 'Marowak'
+  }, {
+    id: 106,
+    name: 'Hitmonlee'
+  }, {
+    id: 107,
+    name: 'Hitmonchan'
+  }, {
+    id: 108,
+    name: 'Lickitung'
+  }, {
+    id: 109,
+    name: 'Koffing'
+  }, {
+    id: 110,
+    name: 'Weezing'
+  }, {
+    id: 111,
+    name: 'Rhyhorn'
+  }, {
+    id: 112,
+    name: 'Rhydon'
+  }, {
+    id: 113,
+    name: 'Chansey'
+  }, {
+    id: 114,
+    name: 'Tangela'
+  }, {
+    id: 115,
+    name: 'Kangaskhan'
+  }, {
+    id: 116,
+    name: 'Horsea'
+  }, {
+    id: 117,
+    name: 'Seadra'
+  }, {
+    id: 118,
+    name: 'Goldeen'
+  }, {
+    id: 119,
+    name: 'Seaking'
+  }, {
+    id: 120,
+    name: 'Staryu'
+  }, {
+    id: 121,
+    name: 'Starmie'
+  }, {
+    id: 122,
+    name: 'Mr. Mime'
+  }, {
+    id: 123,
+    name: 'Scyther'
+  }, {
+    id: 124,
+    name: 'Jynx'
+  }, {
+    id: 125,
+    name: 'Electabuzz'
+  }, {
+    id: 126,
+    name: 'Magmar'
+  }, {
+    id: 127,
+    name: 'Pinsir'
+  }, {
+    id: 128,
+    name: 'Tauros'
+  }, {
+    id: 129,
+    name: 'Magikarp'
+  }, {
+    id: 130,
+    name: 'Gyarados'
+  }, {
+    id: 131,
+    name: 'Lapras'
+  }, {
+    id: 132,
+    name: 'Ditto'
+  }, {
+    id: 133,
+    name: 'Eevee'
+  }, {
+    id: 134,
+    name: 'Vaporeon'
+  }, {
+    id: 135,
+    name: 'Jolteon'
+  }, {
+    id: 136,
+    name: 'Flareon'
+  }, {
+    id: 137,
+    name: 'Porygon'
+  }, {
+    id: 138,
+    name: 'Omanyte'
+  }, {
+    id: 139,
+    name: 'Omastar'
+  }, {
+    id: 140,
+    name: 'Kabuto'
+  }, {
+    id: 141,
+    name: 'Kabutops'
+  }, {
+    id: 142,
+    name: 'Aerodactyl'
+  }, {
+    id: 143,
+    name: 'Snorlax'
+  }, {
+    id: 144,
+    name: 'Articuno'
+  }, {
+    id: 145,
+    name: 'Zapdos'
+  }, {
+    id: 146,
+    name: 'Moltres'
+  }, {
+    id: 147,
+    name: 'Dratini'
+  }, {
+    id: 148,
+    name: 'Dragonair'
+  }, {
+    id: 149,
+    name: 'Dragonite'
+  }, {
+    id: 150,
+    name: 'Mewtwo'
+  }, {
+    id: 151,
+    name: 'Mew'
+  }]
+});
 
 /***/ }),
 
@@ -34284,12 +34754,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./client/App.js");
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Router, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById('app'));
+
+document.addEventListener("DOMContentLoaded", function () {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById("app"));
 });
 })();
 
