@@ -36,6 +36,7 @@
     "start": "node server/index",
     "dev": "nodemon server/index",
     "knex": "knex",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
