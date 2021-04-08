@@ -9,6 +9,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.95.4",
+    "node": "^15.12.0",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
     "package.json": "^2.0.1",
@@ -25,5 +26,24 @@
     "tailwindcss": "^2.1.1",
     "webpack": "^5.31.0",
     "webpack-cli": "^4.6.0"
-  }
+  },
+  "name": "pikachu",
+  "description": "group project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kahikatea-2021/Pikachu.git"
+  },
+  "author": "rebecca-lory-jared-johnny-johann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kahikatea-2021/Pikachu/issues"
+  },
+  "homepage": "https://github.com/kahikatea-2021/Pikachu#readme"
 }
