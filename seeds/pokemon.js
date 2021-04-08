@@ -87,7 +87,7 @@ exports.seed = function(knex) {
         { id:80, name: 'Slowbro' },
         { id:81, name: 'Magnemite' },
         { id:82, name: 'Magneton' },
-        { id:83, name: 'Farfetch'd' },
+        { id:83, name: "Farfetch'd" },
         { id:84, name: 'Doduo' },
         { id:85, name: 'Dodrio' },
         { id:86, name: 'Seel' },
