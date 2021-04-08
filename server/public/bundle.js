@@ -293,9 +293,7 @@ function Home() {
     to: '/Battle'
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "../../public/images/pokeball-spinning.gif"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "../public/images/pokeball-spinning.gif"
-  })))));
+  }))))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
