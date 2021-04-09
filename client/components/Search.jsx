@@ -12,7 +12,7 @@
 //                 <form className='border-2 border-gray-200 rounded
 //       border-2 border-gray-200 rounded-2xl
 //       focus:rounded-2xl focus:border-blue-500 focus:outline-none'>
-//                     <select className='w-16 
+//                     <select className='w-16
 //         ml-10
 //         border-0 focus:outline-none'>
 //                         <option value="NA">NA</option>

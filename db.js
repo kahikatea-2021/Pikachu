@@ -9,7 +9,7 @@
 
 // function getPokemon(db = database) {
 //     const id = randomPokemon()
-//     return db('pokemon').where('id', id)   
+//     return db('pokemon').where('id', id)
 // }
 
 // function getUsers(db = database) {
