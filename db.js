@@ -16,4 +16,4 @@ function getUsers(db = database) {
     return db('users').select()
 }
 
-module.export = random
+module.export = getPokemon, getUsers

@@ -2,6 +2,12 @@ import React from "react";
 import pokemonData from "../../src/data/pokemon";
 import { Link } from "react-router-dom";
 
+
+
+
+
+
+
 function Battle() {
     function randomPokemon() {
         return Math.floor(Math.random() * 101);
