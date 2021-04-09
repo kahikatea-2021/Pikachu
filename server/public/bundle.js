@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home */ "./client/components/Home.jsx");
 /* harmony import */ var _components_Battle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Battle */ "./client/components/Battle.jsx");
 /* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/History */ "./client/components/History.jsx");
+/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_History__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 //import './tailwind.css'
 
@@ -215,22 +216,13 @@ function Battle() {
 
   function battleResult(playerNames, pokemonIds) {
     var number = Math.floor(Math.random() * 100);
-
-    if (number >= 50) {
-      return {
-        winner: playerNames.playerOne,
-        winnerPokemon: pokemonIds[0],
-        loser: playerNames.playerTwo,
-        loserPokemon: pokemonIds[1]
-      };
-    } else {
-      return {
-        winner: playerNames.playerTwo,
-        winnerPokemon: pokemonIds[1],
-        loser: playerNames.playerOne,
-        loserPokemon: pokemonIds[0]
-      };
-    }
+    var randomCondition = number >= 50;
+    return {
+      winner: randomCondition ? playerNames.playerOne : playerNames.playerTwo,
+      winnerPokemon: randomCondition ? pokemonIds[0] : pokemonIds[1],
+      loser: randomCondition ? playerNames.playerTwo : playerNames.playerOne,
+      loserPokemon: randomCondition ? pokemonIds[1] : pokemonIds[0]
+    };
   }
 
   function handleChange(evt) {
@@ -242,16 +234,7 @@ function Battle() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    var result = battleResult(playerNames, pokemonIds); //const history = document.getElementById('history')
-    //const logEntry = document.createElement("div")
-    //const description = document.createElement("p");
-    //logEntry.innerHTML = `${result.winner} has beaten ${result.loser}!`
-    //const winnerPokemon = document.createElement("img")
-    //winnerPokemon.innerHTML = `<img src=\`/images/front_sprites/Spr_1y_${pokemonData.Pokemon[winnerPokemon]}.png\`} />`
-    //history.appendChild(logEntry)
-    //logEntry.appendChild(description)
-    //logEntry.appendChild(winnerPokemon)
-
+    var result = battleResult(playerNames, pokemonIds);
     var winners = document.getElementById('winners');
     var winnerDesc = document.createElement("p");
     winnerDesc.innerHTML = "".concat(result.winner);
@@ -271,7 +254,7 @@ function Battle() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "pt-2 pb-2 text-center bg-red-400 text-white  xl:text-3xl lg:text-xl md:text-md sm:text-sm"
+    className: "pt-2 pb-2 text-center bg-red-400 text-white xl:text-3xl lg:text-xl md:text-md sm:text-sm"
   }, " Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -318,14 +301,14 @@ function Battle() {
     className: "row flex justify-between"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     id: "winners",
-    className: "col text-green-500 mx-56 mt-10 text-lg"
+    className: "col text-green-500 mx-56 mt-10 text-2xl"
   }, "Winners", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "mt-4",
     src: "/images/Spr_Y_Red.png"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     id: "losers",
-    className: "mx-56 mt-10 text-red-500 text-lg"
-  }, "Losers", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "mx-56 mt-10 text-red-500 text-2xl"
+  }, "Losers", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "mt-4",
     src: "/images/Spr_Y_Jessie_James.png"
   })))))));
@@ -339,37 +322,28 @@ function Battle() {
 /*!***************************************!*\
   !*** ./client/components/History.jsx ***!
   \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-
-
-
-
-function History() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "text-center mt-8 text-xl "
-  }, "Battle History"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "flex  justify-between"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "mx-32 mt-10 text-lg"
-  }, "Winners", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    className: "text-sm mt-4"
-  }, "Name ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "",
-    alt: ""
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "mx-32 mt-10 text-lg"
-  }, "Losers")));
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (History);
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import { Route } from "react-router-dom";
+// function History() {
+//   return (
+//     <div>
+//       <h1 className="text-center mt-8 text-xl ">Battle History</h1>
+//       <div className="flex  justify-between">
+//         <div className="mx-32 mt-10 text-lg">
+//           Winners
+//           <p className="text-sm mt-4">
+//             Name <img src="" alt="" />
+//           </p>
+//         </div>
+//         <div className="mx-32 mt-10 text-lg">Losers</div>
+//       </div>
+//     </div>
+//   );
+// }
+// export default History;
 
 /***/ }),
 
