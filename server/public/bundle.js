@@ -114,12 +114,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _components_PokemonHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PokemonHeader */ "./client/components/PokemonHeader.jsx");
-/* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Home */ "./client/components/Home.jsx");
-/* harmony import */ var _components_Battle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Battle */ "./client/components/Battle.jsx");
-/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/History */ "./client/components/History.jsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _components_PokemonHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/PokemonHeader */ "./client/components/PokemonHeader.jsx");
+/* harmony import */ var _components_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Home */ "./client/components/Home.jsx");
+/* harmony import */ var _components_Battle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Battle */ "./client/components/Battle.jsx");
+/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/History */ "./client/components/History.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 //import './tailwind.css'
 
 
@@ -129,14 +129,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react__WEBPACK_IMPORTED_MODULE_4__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_components_PokemonHeader__WEBPACK_IMPORTED_MODULE_0__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(react__WEBPACK_IMPORTED_MODULE_5__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_components_PokemonHeader__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Route, {
     exact: true,
     path: "/",
-    component: _components_Home__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+    component: _components_Home__WEBPACK_IMPORTED_MODULE_2__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__.Route, {
     exact: true,
     path: "/Battle",
-    component: _components_Battle__WEBPACK_IMPORTED_MODULE_2__.default
+    component: _components_Battle__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
 
@@ -242,16 +242,24 @@ function Battle() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    var result = battleResult(playerNames, pokemonIds);
-    var history = document.getElementById('history');
-    var logEntry = document.createElement("div");
-    var description = document.createElement("p");
-    logEntry.innerHTML = "".concat(result.winner, " and ").concat(result.winnerPokemon, " has beaten ").concat(result.loser, " and ").concat(result.loserPokemon);
-    var winnerPokemon = document.createElement("img");
-    winnerPokemon.innerHTML = "<img src=`/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[winnerPokemon], ".png`} />");
-    history.appendChild(logEntry);
-    logEntry.appendChild(description);
-    logEntry.appendChild(winnerPokemon);
+    var result = battleResult(playerNames, pokemonIds); //const history = document.getElementById('history')
+    //const logEntry = document.createElement("div")
+    //const description = document.createElement("p");
+    //logEntry.innerHTML = `${result.winner} has beaten ${result.loser}!`
+    //const winnerPokemon = document.createElement("img")
+    //winnerPokemon.innerHTML = `<img src=\`/images/front_sprites/Spr_1y_${pokemonData.Pokemon[winnerPokemon]}.png\`} />`
+    //history.appendChild(logEntry)
+    //logEntry.appendChild(description)
+    //logEntry.appendChild(winnerPokemon)
+
+    var winners = document.getElementById('winners');
+    var winnerDesc = document.createElement("p");
+    winnerDesc.innerHTML = "".concat(result.winner);
+    winners.appendChild(winnerDesc);
+    var losers = document.getElementById('losers');
+    var loserDesc = document.createElement("p");
+    loserDesc.innerHTML = "".concat(result.loser);
+    losers.appendChild(loserDesc);
   }
 
   var onClickHandler = function onClickHandler(evt) {
@@ -263,7 +271,7 @@ function Battle() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "pt-2 pb-2 pl-60 bg-red-400 text-white \r xl:text-3xl\r lg:text-xl\r md:text-md\r sm:text-sm"
+    className: "pt-2 pb-2 text-center bg-red-400 text-white  xl:text-3xl lg:text-xl md:text-md sm:text-sm"
   }, " Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -301,9 +309,26 @@ function Battle() {
     value: playerNames.playerTwo,
     onChange: handleChange,
     className: "w-16 text-xs border-0 focus:outline-none"
-  }, playerTwoList)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "history"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "History"))));
+  }, playerTwoList)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "bg-yellow-300 content-center pb-24"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+    className: "pt-2 pb-2 text-center bg-red-400 text-white xl:text-3xl lg:text-xl md:text-md sm:text-sm"
+  }, "Battle History"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "history",
+    className: "row flex justify-between"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "winners",
+    className: "col text-green-500 mx-56 mt-10 text-lg"
+  }, "Winners", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "mt-4",
+    src: "/images/Spr_Y_Red.png"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "losers",
+    className: "mx-56 mt-10 text-red-500 text-lg"
+  }, "Losers", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "mt-4",
+    src: "/images/Spr_Y_Jessie_James.png"
+  })))))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Battle);
@@ -322,6 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 
 
 
@@ -359,7 +385,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 
 
 
@@ -397,22 +423,14 @@ __webpack_require__.r(__webpack_exports__);
 
 function PokemonHeader() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "\r text-center text-black\r p-10 bg-yellow-300 flex\r h-auto w-auto\r sm:text-xl\r md:text-2xl\r lg:text-4xl\r xl:text-6xl\r 2xl:text-6xl"
+    className: " text-center text-black p-10 bg-yellow-300 flex h-auto w-auto sm:text-xl md:text-2xl lg:text-4xl xl:text-6xl 2xl:text-6xl"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-1 w-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: ""
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/"
-  }, "Battle Academy"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "md:flex items-center justify-end md:flex-1 lg:w-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#",
-    className: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-400 hover:bg-blue-700"
-  }, "Leaderboards"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#",
-    className: "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-400 hover:bg-blue-700"
-  }, "User Management"))));
+  }, "Battle Academy")))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PokemonHeader);
@@ -29614,6 +29632,460 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-router-dom/cjs/react-router-dom.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-router-dom/cjs/react-router-dom.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var reactRouter = __webpack_require__(/*! react-router */ "./node_modules/react-router/esm/react-router.js");
+var React = _interopDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var history = __webpack_require__(/*! history */ "./node_modules/history/esm/history.js");
+var PropTypes = _interopDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+var warning = _interopDefault(__webpack_require__(/*! tiny-warning */ "./node_modules/tiny-warning/dist/tiny-warning.esm.js"));
+var invariant = _interopDefault(__webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js"));
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+/**
+ * The public API for a <Router> that uses HTML5 history.
+ */
+
+var BrowserRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  _inheritsLoose(BrowserRouter, _React$Component);
+
+  function BrowserRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = history.createBrowserHistory(_this.props);
+    return _this;
+  }
+
+  var _proto = BrowserRouter.prototype;
+
+  _proto.render = function render() {
+    return React.createElement(reactRouter.Router, {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return BrowserRouter;
+}(React.Component);
+
+{
+  BrowserRouter.propTypes = {
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    forceRefresh: PropTypes.bool,
+    getUserConfirmation: PropTypes.func,
+    keyLength: PropTypes.number
+  };
+
+  BrowserRouter.prototype.componentDidMount = function () {
+     warning(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { BrowserRouter as Router }`.") ;
+  };
+}
+
+/**
+ * The public API for a <Router> that uses window.location.hash.
+ */
+
+var HashRouter =
+/*#__PURE__*/
+function (_React$Component) {
+  _inheritsLoose(HashRouter, _React$Component);
+
+  function HashRouter() {
+    var _this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _React$Component.call.apply(_React$Component, [this].concat(args)) || this;
+    _this.history = history.createHashHistory(_this.props);
+    return _this;
+  }
+
+  var _proto = HashRouter.prototype;
+
+  _proto.render = function render() {
+    return React.createElement(reactRouter.Router, {
+      history: this.history,
+      children: this.props.children
+    });
+  };
+
+  return HashRouter;
+}(React.Component);
+
+{
+  HashRouter.propTypes = {
+    basename: PropTypes.string,
+    children: PropTypes.node,
+    getUserConfirmation: PropTypes.func,
+    hashType: PropTypes.oneOf(["hashbang", "noslash", "slash"])
+  };
+
+  HashRouter.prototype.componentDidMount = function () {
+     warning(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, " + "use `import { Router }` instead of `import { HashRouter as Router }`.") ;
+  };
+}
+
+var resolveToLocation = function resolveToLocation(to, currentLocation) {
+  return typeof to === "function" ? to(currentLocation) : to;
+};
+var normalizeToLocation = function normalizeToLocation(to, currentLocation) {
+  return typeof to === "string" ? history.createLocation(to, null, null, currentLocation) : to;
+};
+
+var forwardRefShim = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef = React.forwardRef;
+
+if (typeof forwardRef === "undefined") {
+  forwardRef = forwardRefShim;
+}
+
+function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+
+var LinkAnchor = forwardRef(function (_ref, forwardedRef) {
+  var innerRef = _ref.innerRef,
+      navigate = _ref.navigate,
+      _onClick = _ref.onClick,
+      rest = _objectWithoutPropertiesLoose(_ref, ["innerRef", "navigate", "onClick"]);
+
+  var target = rest.target;
+
+  var props = _extends({}, rest, {
+    onClick: function onClick(event) {
+      try {
+        if (_onClick) _onClick(event);
+      } catch (ex) {
+        event.preventDefault();
+        throw ex;
+      }
+
+      if (!event.defaultPrevented && // onClick prevented default
+      event.button === 0 && ( // ignore everything but left clicks
+      !target || target === "_self") && // let browser handle "target=_blank" etc.
+      !isModifiedEvent(event) // ignore clicks with modifier keys
+      ) {
+          event.preventDefault();
+          navigate();
+        }
+    }
+  }); // React 15 compat
+
+
+  if (forwardRefShim !== forwardRef) {
+    props.ref = forwardedRef || innerRef;
+  } else {
+    props.ref = innerRef;
+  }
+  /* eslint-disable-next-line jsx-a11y/anchor-has-content */
+
+
+  return React.createElement("a", props);
+});
+
+{
+  LinkAnchor.displayName = "LinkAnchor";
+}
+/**
+ * The public API for rendering a history-aware <a>.
+ */
+
+
+var Link = forwardRef(function (_ref2, forwardedRef) {
+  var _ref2$component = _ref2.component,
+      component = _ref2$component === void 0 ? LinkAnchor : _ref2$component,
+      replace = _ref2.replace,
+      to = _ref2.to,
+      innerRef = _ref2.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
+
+  return React.createElement(reactRouter.__RouterContext.Consumer, null, function (context) {
+    !context ?  invariant(false, "You should not use <Link> outside a <Router>")  : void 0;
+    var history = context.history;
+    var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
+    var href = location ? history.createHref(location) : "";
+
+    var props = _extends({}, rest, {
+      href: href,
+      navigate: function navigate() {
+        var location = resolveToLocation(to, context.location);
+        var method = replace ? history.replace : history.push;
+        method(location);
+      }
+    }); // React 15 compat
+
+
+    if (forwardRefShim !== forwardRef) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return React.createElement(component, props);
+  });
+});
+
+{
+  var toType = PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.func]);
+  var refType = PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.shape({
+    current: PropTypes.any
+  })]);
+  Link.displayName = "Link";
+  Link.propTypes = {
+    innerRef: refType,
+    onClick: PropTypes.func,
+    replace: PropTypes.bool,
+    target: PropTypes.string,
+    to: toType.isRequired
+  };
+}
+
+var forwardRefShim$1 = function forwardRefShim(C) {
+  return C;
+};
+
+var forwardRef$1 = React.forwardRef;
+
+if (typeof forwardRef$1 === "undefined") {
+  forwardRef$1 = forwardRefShim$1;
+}
+
+function joinClassnames() {
+  for (var _len = arguments.length, classnames = new Array(_len), _key = 0; _key < _len; _key++) {
+    classnames[_key] = arguments[_key];
+  }
+
+  return classnames.filter(function (i) {
+    return i;
+  }).join(" ");
+}
+/**
+ * A <Link> wrapper that knows if it's "active" or not.
+ */
+
+
+var NavLink = forwardRef$1(function (_ref, forwardedRef) {
+  var _ref$ariaCurrent = _ref["aria-current"],
+      ariaCurrent = _ref$ariaCurrent === void 0 ? "page" : _ref$ariaCurrent,
+      _ref$activeClassName = _ref.activeClassName,
+      activeClassName = _ref$activeClassName === void 0 ? "active" : _ref$activeClassName,
+      activeStyle = _ref.activeStyle,
+      classNameProp = _ref.className,
+      exact = _ref.exact,
+      isActiveProp = _ref.isActive,
+      locationProp = _ref.location,
+      sensitive = _ref.sensitive,
+      strict = _ref.strict,
+      styleProp = _ref.style,
+      to = _ref.to,
+      innerRef = _ref.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref, ["aria-current", "activeClassName", "activeStyle", "className", "exact", "isActive", "location", "sensitive", "strict", "style", "to", "innerRef"]);
+
+  return React.createElement(reactRouter.__RouterContext.Consumer, null, function (context) {
+    !context ?  invariant(false, "You should not use <NavLink> outside a <Router>")  : void 0;
+    var currentLocation = locationProp || context.location;
+    var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
+    var path = toLocation.pathname; // Regex taken from: https://github.com/pillarjs/path-to-regexp/blob/master/index.js#L202
+
+    var escapedPath = path && path.replace(/([.+*?=^!:${}()[\]|/\\])/g, "\\$1");
+    var match = escapedPath ? reactRouter.matchPath(currentLocation.pathname, {
+      path: escapedPath,
+      exact: exact,
+      sensitive: sensitive,
+      strict: strict
+    }) : null;
+    var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
+    var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
+    var style = isActive ? _extends({}, styleProp, {}, activeStyle) : styleProp;
+
+    var props = _extends({
+      "aria-current": isActive && ariaCurrent || null,
+      className: className,
+      style: style,
+      to: toLocation
+    }, rest); // React 15 compat
+
+
+    if (forwardRefShim$1 !== forwardRef$1) {
+      props.ref = forwardedRef || innerRef;
+    } else {
+      props.innerRef = innerRef;
+    }
+
+    return React.createElement(Link, props);
+  });
+});
+
+{
+  NavLink.displayName = "NavLink";
+  var ariaCurrentType = PropTypes.oneOf(["page", "step", "location", "date", "time", "true"]);
+  NavLink.propTypes = _extends({}, Link.propTypes, {
+    "aria-current": ariaCurrentType,
+    activeClassName: PropTypes.string,
+    activeStyle: PropTypes.object,
+    className: PropTypes.string,
+    exact: PropTypes.bool,
+    isActive: PropTypes.func,
+    location: PropTypes.object,
+    sensitive: PropTypes.bool,
+    strict: PropTypes.bool,
+    style: PropTypes.object
+  });
+}
+
+Object.defineProperty(exports, "MemoryRouter", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.MemoryRouter;
+  }
+}));
+Object.defineProperty(exports, "Prompt", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.Prompt;
+  }
+}));
+Object.defineProperty(exports, "Redirect", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.Redirect;
+  }
+}));
+Object.defineProperty(exports, "Route", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.Route;
+  }
+}));
+Object.defineProperty(exports, "Router", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.Router;
+  }
+}));
+Object.defineProperty(exports, "StaticRouter", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.StaticRouter;
+  }
+}));
+Object.defineProperty(exports, "Switch", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.Switch;
+  }
+}));
+Object.defineProperty(exports, "generatePath", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.generatePath;
+  }
+}));
+Object.defineProperty(exports, "matchPath", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.matchPath;
+  }
+}));
+Object.defineProperty(exports, "useHistory", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.useHistory;
+  }
+}));
+Object.defineProperty(exports, "useLocation", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.useLocation;
+  }
+}));
+Object.defineProperty(exports, "useParams", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.useParams;
+  }
+}));
+Object.defineProperty(exports, "useRouteMatch", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.useRouteMatch;
+  }
+}));
+Object.defineProperty(exports, "withRouter", ({
+  enumerable: true,
+  get: function () {
+    return reactRouter.withRouter;
+  }
+}));
+exports.BrowserRouter = BrowserRouter;
+exports.HashRouter = HashRouter;
+exports.Link = Link;
+exports.NavLink = NavLink;
+//# sourceMappingURL=react-router-dom.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
@@ -29969,6 +30441,22 @@ if (true) {
 
 
 //# sourceMappingURL=react-router-dom.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/react-router-dom/index.js":
+/*!************************************************!*\
+  !*** ./node_modules/react-router-dom/index.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-router-dom.js */ "./node_modules/react-router-dom/cjs/react-router-dom.js");
+}
 
 
 /***/ }),
@@ -34938,14 +35426,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./client/App.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./client/App.js");
 
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.getElementById('app'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.HashRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_3__.default, null)), document.getElementById('app'));
 });
 })();
 

@@ -58,16 +58,27 @@ function Battle() {
     function handleSubmit(evt) {
         evt.preventDefault()
         const result = battleResult(playerNames, pokemonIds)
-        const history = document.getElementById('history')
-        const logEntry = document.createElement("div")
-        const description = document.createElement("p");
-        logEntry.innerHTML = `${result.winner} and ${result.winnerPokemon} has beaten ${result.loser} and ${result.loserPokemon}`
-        const winnerPokemon = document.createElement("img")
-        winnerPokemon.innerHTML = `<img src=\`/images/front_sprites/Spr_1y_${pokemonData.Pokemon[winnerPokemon]}.png\`} />`
+        //const history = document.getElementById('history')
+        //const logEntry = document.createElement("div")
+        //const description = document.createElement("p");
+        //logEntry.innerHTML = `${result.winner} has beaten ${result.loser}!`
+        //const winnerPokemon = document.createElement("img")
+        //winnerPokemon.innerHTML = `<img src=\`/images/front_sprites/Spr_1y_${pokemonData.Pokemon[winnerPokemon]}.png\`} />`
         
-        history.appendChild(logEntry)
-        logEntry.appendChild(description)
-        logEntry.appendChild(winnerPokemon)
+        //history.appendChild(logEntry)
+        //logEntry.appendChild(description)
+        //logEntry.appendChild(winnerPokemon)
+
+        const winners = document.getElementById('winners')
+        const winnerDesc = document.createElement("p")
+        winnerDesc.innerHTML = `${result.winner}`
+        winners.appendChild(winnerDesc)
+
+        const losers = document.getElementById('losers')
+        const loserDesc = document.createElement("p")
+        loserDesc.innerHTML = `${result.loser}`
+        losers.appendChild(loserDesc)
+
     }
 
 
@@ -81,7 +92,7 @@ function Battle() {
     return (
         <>
             <div className="flex-auto">
-                <h1 className="pt-2 pb-2 pl-60 bg-red-400 text-white 
+                <h1 className="pt-2 pb-2 text-center bg-red-400 text-white 
     xl:text-3xl
     lg:text-xl
     md:text-md
@@ -138,8 +149,29 @@ function Battle() {
                             </div>
                     </div>
                 </div>
-            <div id='history'>
-                <p>History</p>
+            <div >
+            <div  className="bg-yellow-300 content-center pb-24">
+        <h1
+          className="pt-2 pb-2 text-center bg-red-400 text-white
+    xl:text-3xl
+    lg:text-xl
+    md:text-md
+    sm:text-sm"
+        >
+          Battle History
+        </h1>
+        <div id='history' className="row flex justify-between">
+          <div id='winners' className="col text-green-500 mx-56 mt-10 text-lg">
+            Winners
+            <img className="mt-4" src={"/images/Spr_Y_Red.png"} />
+          </div>
+          <div id='losers' className="mx-56 mt-10 text-red-500 text-lg">
+            Losers{" "}
+            <img className="mt-4" src={"/images/Spr_Y_Jessie_James.png"} />
+          </div>
+        </div>
+      </div>
+
             </div>
             </div>
         </>
