@@ -139,7 +139,7 @@ function App() {
     component: _components_Battle__WEBPACK_IMPORTED_MODULE_2__.default
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     exact: true,
-    path: "/History",
+    path: "/Battle",
     component: _components_History__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
@@ -162,78 +162,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/data/pokemon */ "./src/data/pokemon.js");
 /* harmony import */ var _src_data_users__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/data/users */ "./src/data/users.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
+
+var playerOneList = _src_data_users__WEBPACK_IMPORTED_MODULE_2__.default.Users.map(function (user) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    key: user.name
+  }, user.name);
+});
+var playerTwoList = _src_data_users__WEBPACK_IMPORTED_MODULE_2__.default.Users.map(function (user) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    key: user.name
+  }, user.name);
+});
 
 function Battle() {
   function randomPokemon() {
     return Math.floor(Math.random() * 101);
   }
 
-  var pokemon1 = randomPokemon();
-  var pokemon2 = randomPokemon();
-  console.log(pokemon1);
-  console.log(pokemon2);
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([1, 2]),
+      _useState2 = _slicedToArray(_useState, 2),
+      pokemonIds = _useState2[0],
+      setPokemonIds = _useState2[1]; // let { pokemon1, setPokemon1 }= useState(randomPokemon())
+
+
+  var onClickHandler = function onClickHandler(evt) {
+    var id1 = randomPokemon();
+    var id2 = randomPokemon();
+    setPokemonIds([id1, id2]);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
     className: "pt-2 pb-2 pl-10 bg-red-400 text-white\r xl:text-3xl\r lg:text-xl\r md:text-md\r sm:text-sm"
-  }, " ", "Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, " Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mt-2 mb-2 border-2 border-black rounded-xl grid grid-cols-3 gap-8"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].id, ".png")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[1]].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[1]].id, ".png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    to: "/Battle"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Random"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: onClickHandler
+  }, "Random"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2"
-  }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon1].id, ".webp")
+  }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].id, ".webp")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-red-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 1: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-    className: "w-16 text-xs\r border-0 focus:outline-none"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "NA"
-  }, "Jared"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "EUW"
-  }, "Johann"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "EUN"
-  }, "Johnny"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "KR"
-  }, "Lory"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "BR"
-  }, "Rebecca"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "w-16 text-xs border-0 focus:outline-none"
+  }, playerOneList)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-    to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/images/Pokeball_tiny.webp"
-  }), " ", "Fight"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }), " Fight")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-blue-400"
-  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 2: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
-    className: "w-16 text-xs\r border-0 focus:outline-none"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "NA"
-  }, "Jared"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "EUW"
-  }, "Johann"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "EUN"
-  }, "Johnny"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "KR"
-  }, "Lory"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
-    value: "BR"
-  }, "Rebecca")))))));
+    className: "w-16 text-xs border-0 focus:outline-none"
+  }, playerTwoList))))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Battle);

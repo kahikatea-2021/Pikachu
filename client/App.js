@@ -13,7 +13,7 @@ function App() {
       <PokemonHeader />
       <Route exact path="/" component={Home} />
       <Route exact path="/Battle" component={Battle} />
-      <Route exact path="/History" component={History} />
+      <Route exact path="/Battle" component={History} />
     </>
   );
 }
