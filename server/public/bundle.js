@@ -137,10 +137,6 @@ function App() {
     exact: true,
     path: "/Battle",
     component: _components_Battle__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-    exact: true,
-    path: "/Battle",
-    component: _components_History__WEBPACK_IMPORTED_MODULE_3__.default
   }));
 }
 
@@ -184,6 +180,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var playerOneList = _src_data_users__WEBPACK_IMPORTED_MODULE_2__.default.Users.map(function (user) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
     value: user.name,
@@ -216,18 +213,22 @@ function Battle() {
       playerNames = _useState4[0],
       setPlayerNames = _useState4[1];
 
-  function battleResult(playerNames) {
+  function battleResult(playerNames, pokemonIds) {
     var number = Math.floor(Math.random() * 100);
 
     if (number >= 50) {
       return {
         winner: playerNames.playerOne,
-        loser: playerNames.playerTwo
+        winnerPokemon: pokemonIds[0],
+        loser: playerNames.playerTwo,
+        loserPokemon: pokemonIds[1]
       };
     } else {
       return {
         winner: playerNames.playerTwo,
-        loser: playerNames.playerOne
+        winnerPokemon: pokemonIds[1],
+        loser: playerNames.playerOne,
+        loserPokemon: pokemonIds[0]
       };
     }
   }
@@ -241,11 +242,16 @@ function Battle() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    var result = battleResult(playerNames);
+    var result = battleResult(playerNames, pokemonIds);
     var history = document.getElementById('history');
-    var logEntry = document.createElement("p");
-    logEntry.innerHTML = "".concat(result.winner, " has beaten ").concat(result.loser);
+    var logEntry = document.createElement("div");
+    var description = document.createElement("p");
+    logEntry.innerHTML = "".concat(result.winner, " and ").concat(result.winnerPokemon, " has beaten ").concat(result.loser, " and ").concat(result.loserPokemon);
+    var winnerPokemon = document.createElement("img");
+    winnerPokemon.innerHTML = "<img src=`/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[winnerPokemon], ".png`} />");
     history.appendChild(logEntry);
+    logEntry.appendChild(description);
+    logEntry.appendChild(winnerPokemon);
   }
 
   var onClickHandler = function onClickHandler(evt) {
@@ -272,9 +278,7 @@ function Battle() {
     className: "pl-2"
   }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].id, ".webp")
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-red-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
@@ -285,10 +289,8 @@ function Battle() {
     className: "w-16 text-xs border-0 focus:outline-none"
   }, playerOneList)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "submit",
-    className: "button-primary"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    onClick: handleSubmit,
     src: "/images/Pokeball_tiny.webp"
   }), " Fight")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-blue-400"
@@ -299,7 +301,7 @@ function Battle() {
     value: playerNames.playerTwo,
     onChange: handleChange,
     className: "w-16 text-xs border-0 focus:outline-none"
-  }, playerTwoList))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, playerTwoList)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     id: "history"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "History"))));
 }

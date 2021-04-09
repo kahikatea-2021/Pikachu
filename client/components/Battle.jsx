@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import pokemonData from "../../src/data/pokemon";
 import usersData from "../../src/data/users";
 import { Link } from "react-router-dom";
+import pokemon from "../../src/data/pokemon";
 
 const playerOneList = usersData.Users.map(user => <option value={user.name} key={user.name}>
     {user.name}
@@ -25,18 +26,22 @@ function Battle() {
     const [pokemonIds, setPokemonIds] = useState([1, 150])
     const [playerNames, setPlayerNames] = useState({ ...defaultPlayers })
 
-    function battleResult(playerNames) {
+    function battleResult(playerNames, pokemonIds) {
         const number = Math.floor(Math.random() * 100)
         if (number >= 50) {
             return {
                 winner: playerNames.playerOne,
-                loser: playerNames.playerTwo
+                winnerPokemon: pokemonIds[0],
+                loser: playerNames.playerTwo,
+                loserPokemon: pokemonIds[1]
             }
         }
         else {
             return {
                 winner: playerNames.playerTwo,
-                loser: playerNames.playerOne
+                winnerPokemon: pokemonIds[1],
+                loser: playerNames.playerOne,
+                loserPokemon: pokemonIds[0]
             }
         }
     }
@@ -52,12 +57,20 @@ function Battle() {
 
     function handleSubmit(evt) {
         evt.preventDefault()
-        const result = battleResult(playerNames)
+        const result = battleResult(playerNames, pokemonIds)
         const history = document.getElementById('history')
-        const logEntry = document.createElement("p");
-        logEntry.innerHTML = `${result.winner} has beaten ${result.loser}`
+        const logEntry = document.createElement("div")
+        const description = document.createElement("p");
+        logEntry.innerHTML = `${result.winner} and ${result.winnerPokemon} has beaten ${result.loser} and ${result.loserPokemon}`
+        const winnerPokemon = document.createElement("img")
+        winnerPokemon.innerHTML = `<img src=\`/images/front_sprites/Spr_1y_${pokemonData.Pokemon[winnerPokemon]}.png\`} />`
+        
         history.appendChild(logEntry)
+        logEntry.appendChild(description)
+        logEntry.appendChild(winnerPokemon)
     }
+
+
 
     const onClickHandler = evt => {
         const id1 = randomPokemon()
@@ -104,8 +117,8 @@ function Battle() {
                         </div>
                         <div></div>
                         <div></div>
-                        <form onSubmit={handleSubmit} >
 
+                        
                             <div className="flex-auto p-2 rounded-xl bg-red-400">
                                 <p className="text-sm text-white">Player 1: </p>
                                 <select name='playerOne' value={playerNames.playerOne} onChange={handleChange} className="w-16 text-xs border-0 focus:outline-none">
@@ -114,8 +127,7 @@ function Battle() {
                             </div>
                             <div className="flex flex-nowrap content-center items-center justify-center">
                                 <div>
-                                    <input type='submit' className='button-primary' />
-                                    <img src={"/images/Pokeball_tiny.webp"} /> Fight
+                                    <img onClick={handleSubmit}  src={"/images/Pokeball_tiny.webp"} /> Fight
                                 </div>
                             </div>
                             <div className="flex-auto p-2 rounded-xl bg-blue-400">
@@ -124,7 +136,6 @@ function Battle() {
                                     {playerTwoList}
                                 </select>
                             </div>
-                        </form>
                     </div>
                 </div>
             <div id='history'>
