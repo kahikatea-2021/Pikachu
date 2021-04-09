@@ -1,12 +1,7 @@
 import React from "react";
 import pokemonData from "../../src/data/pokemon";
+import usersData from "../../src/data/users";
 import { Link } from "react-router-dom";
-
-
-
-
-
-
 
 function Battle() {
     function randomPokemon() {
@@ -70,6 +65,8 @@ function Battle() {
                                 className="w-16 text-xs
         border-0 focus:outline-none"
                             >
+                                {/* //Need a function here that generates the option with value and names of each Users
+                                {usersData.Users => } */}
                                 <option value="NA">Jared</option>
                                 <option value="EUW">Johann</option>
                                 <option value="EUN">Johnny</option>

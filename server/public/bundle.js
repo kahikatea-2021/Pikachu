@@ -161,7 +161,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/data/pokemon */ "./src/data/pokemon.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _src_data_users__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/data/users */ "./src/data/users.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -187,7 +189,7 @@ function Battle() {
     src: "/images/front_sprites/Spr_1y_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemon2].id, ".png")
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Random"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2"
@@ -211,7 +213,7 @@ function Battle() {
     value: "BR"
   }, "Rebecca"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/Battle"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/images/Pokeball_tiny.webp"
@@ -812,6 +814,92 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     id: 151,
     name: 'Mew'
+  }]
+});
+
+/***/ }),
+
+/***/ "./src/data/users.js":
+/*!***************************!*\
+  !*** ./src/data/users.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  Users: [{
+    id: 1,
+    name: "Johann"
+  }, {
+    id: 2,
+    name: "Johnny"
+  }, {
+    id: 3,
+    name: "Lory"
+  }, {
+    id: 4,
+    name: "Jared"
+  }, {
+    id: 5,
+    name: "Rebecca"
+  }, {
+    id: 6,
+    name: "Erin"
+  }, {
+    id: 7,
+    name: "Grace"
+  }, {
+    id: 8,
+    name: "Sarah"
+  }, {
+    id: 9,
+    name: "Laché"
+  }, {
+    id: 10,
+    name: "Prue"
+  }, {
+    id: 11,
+    name: "Don"
+  }, {
+    id: 12,
+    name: "Karel"
+  }, {
+    id: 13,
+    name: "Jonathan"
+  }, {
+    id: 14,
+    name: "Dmitry"
+  }, {
+    id: 15,
+    name: "Karol"
+  }, {
+    id: 16,
+    name: "Kateti"
+  }, {
+    id: 17,
+    name: "Alex"
+  }, {
+    id: 18,
+    name: "Nico"
+  }, {
+    id: 19,
+    name: "Sam"
+  }, {
+    id: 20,
+    name: "Rogan"
+  }, {
+    id: 21,
+    name: "Sina"
+  }, {
+    id: 22,
+    name: "Yuan"
+  }, {
+    id: 23,
+    name: "Daryl"
   }]
 });
 
