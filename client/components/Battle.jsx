@@ -3,24 +3,61 @@ import pokemonData from "../../src/data/pokemon";
 import usersData from "../../src/data/users";
 import { Link } from "react-router-dom";
 
-const playerOneList = usersData.Users.map(user => <option key={user.name}>
+const playerOneList = usersData.Users.map(user => <option value={user.name} key={user.name}>
     {user.name}
 </option>)
 
-const playerTwoList = usersData.Users.map(user => <option key={user.name}>
+const playerTwoList = usersData.Users.map(user => <option value={user.name} key={user.name}>
     {user.name}
 </option>)
+
+const defaultPlayers = {
+    playerOne: 'Jared',
+    playerTwo: 'Lory'
+}
 
 
 function Battle() {
     function randomPokemon() {
-        return Math.floor(Math.random() * 101);
+        return Math.floor(Math.random() * 151);
+    }
+
+    const [pokemonIds, setPokemonIds] = useState([1, 150])
+    const [playerNames, setPlayerNames] = useState({ ...defaultPlayers })
+
+    function battleResult(playerNames) {
+        const number = Math.floor(Math.random() * 100)
+        if (number >= 50) {
+            return {
+                winner: playerNames.playerOne,
+                loser: playerNames.playerTwo
+            }
+        }
+        else {
+            return {
+                winner: playerNames.playerTwo,
+                loser: playerNames.playerOne
+            }
+        }
     }
 
 
-    const [ pokemonIds, setPokemonIds ] = useState([1, 2])
+    function handleChange(evt) {
+        const { name, value } = evt.target
+        setPlayerNames({
+            ...playerNames,
+            [name]: value
+        })
+    }
 
-    // let { pokemon1, setPokemon1 }= useState(randomPokemon())
+    function handleSubmit(evt) {
+        evt.preventDefault()
+        const result = battleResult(playerNames)
+        const history = document.getElementById('history')
+        const logEntry = document.createElement("p");
+        logEntry.innerHTML = `${result.winner} has beaten ${result.loser}`
+        history.appendChild(logEntry)
+    }
 
     const onClickHandler = evt => {
         const id1 = randomPokemon()
@@ -31,7 +68,7 @@ function Battle() {
     return (
         <>
             <div className="flex-auto">
-                <h1 className="pt-2 pb-2 pl-10 bg-red-400 text-white
+                <h1 className="pt-2 pb-2 pl-60 bg-red-400 text-white 
     xl:text-3xl
     lg:text-xl
     md:text-md
@@ -67,27 +104,32 @@ function Battle() {
                         </div>
                         <div></div>
                         <div></div>
-                        <div className="flex-auto p-2 rounded-xl bg-red-400">
-                            <p className="text-sm text-white">Player 1: </p>
-                            <select className="w-16 text-xs border-0 focus:outline-none">
-                                {playerOneList}
-                            </select>
-                        </div>
-                        <div className="flex flex-nowrap content-center items-center justify-center">
-                            <div>
-                                {/* <button onClick= {}> */}
-                                <img src={"/images/Pokeball_tiny.webp"} /> Fight
-                                    {/* </button> */}
+                        <form onSubmit={handleSubmit} >
+
+                            <div className="flex-auto p-2 rounded-xl bg-red-400">
+                                <p className="text-sm text-white">Player 1: </p>
+                                <select name='playerOne' value={playerNames.playerOne} onChange={handleChange} className="w-16 text-xs border-0 focus:outline-none">
+                                    {playerOneList}
+                                </select>
                             </div>
-                        </div>
-                        <div className="flex-auto p-2 rounded-xl bg-blue-400">
-                            <p className="text-sm text-white">Player 2: </p>
-                            <select className="w-16 text-xs border-0 focus:outline-none">
-                                {playerTwoList}
-                            </select>
-                        </div>
+                            <div className="flex flex-nowrap content-center items-center justify-center">
+                                <div>
+                                    <input type='submit' className='button-primary' />
+                                    <img src={"/images/Pokeball_tiny.webp"} /> Fight
+                                </div>
+                            </div>
+                            <div className="flex-auto p-2 rounded-xl bg-blue-400">
+                                <p className="text-sm text-white">Player 2: </p>
+                                <select name='playerTwo' value={playerNames.playerTwo} onChange={handleChange} className="w-16 text-xs border-0 focus:outline-none">
+                                    {playerTwoList}
+                                </select>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            <div id='history'>
+                <p>History</p>
+            </div>
             </div>
         </>
     );

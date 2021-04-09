@@ -162,6 +162,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../src/data/pokemon */ "./src/data/pokemon.js");
 /* harmony import */ var _src_data_users__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../src/data/users */ "./src/data/users.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -180,25 +186,67 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var playerOneList = _src_data_users__WEBPACK_IMPORTED_MODULE_2__.default.Users.map(function (user) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: user.name,
     key: user.name
   }, user.name);
 });
 var playerTwoList = _src_data_users__WEBPACK_IMPORTED_MODULE_2__.default.Users.map(function (user) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("option", {
+    value: user.name,
     key: user.name
   }, user.name);
 });
+var defaultPlayers = {
+  playerOne: 'Jared',
+  playerTwo: 'Lory'
+};
 
 function Battle() {
   function randomPokemon() {
-    return Math.floor(Math.random() * 101);
+    return Math.floor(Math.random() * 151);
   }
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([1, 2]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([1, 150]),
       _useState2 = _slicedToArray(_useState, 2),
       pokemonIds = _useState2[0],
-      setPokemonIds = _useState2[1]; // let { pokemon1, setPokemon1 }= useState(randomPokemon())
+      setPokemonIds = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_objectSpread({}, defaultPlayers)),
+      _useState4 = _slicedToArray(_useState3, 2),
+      playerNames = _useState4[0],
+      setPlayerNames = _useState4[1];
+
+  function battleResult(playerNames) {
+    var number = Math.floor(Math.random() * 100);
+
+    if (number >= 50) {
+      return {
+        winner: playerNames.playerOne,
+        loser: playerNames.playerTwo
+      };
+    } else {
+      return {
+        winner: playerNames.playerTwo,
+        loser: playerNames.playerOne
+      };
+    }
+  }
+
+  function handleChange(evt) {
+    var _evt$target = evt.target,
+        name = _evt$target.name,
+        value = _evt$target.value;
+    setPlayerNames(_objectSpread(_objectSpread({}, playerNames), {}, _defineProperty({}, name, value)));
+  }
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    var result = battleResult(playerNames);
+    var history = document.getElementById('history');
+    var logEntry = document.createElement("p");
+    logEntry.innerHTML = "".concat(result.winner, " has beaten ").concat(result.loser);
+    history.appendChild(logEntry);
+  }
 
   var onClickHandler = function onClickHandler(evt) {
     var id1 = randomPokemon();
@@ -209,7 +257,7 @@ function Battle() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
-    className: "pt-2 pb-2 pl-10 bg-red-400 text-white\r xl:text-3xl\r lg:text-xl\r md:text-md\r sm:text-sm"
+    className: "pt-2 pb-2 pl-60 bg-red-400 text-white \r xl:text-3xl\r lg:text-xl\r md:text-md\r sm:text-sm"
   }, " Pokemon Battle Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "pl-2 pr-2 bg-gray-200 flex flex-nowrap content-center items-center justify-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -224,23 +272,36 @@ function Battle() {
     className: "pl-2"
   }, _src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].name, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/images/back_sprites/Spr_b_g1_".concat(_src_data_pokemon__WEBPACK_IMPORTED_MODULE_1__.default.Pokemon[pokemonIds[0]].id, ".webp")
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-red-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 1: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    name: "playerOne",
+    value: playerNames.playerOne,
+    onChange: handleChange,
     className: "w-16 text-xs border-0 focus:outline-none"
   }, playerOneList)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-nowrap content-center items-center justify-center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "submit",
+    className: "button-primary"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: "/images/Pokeball_tiny.webp"
   }), " Fight")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex-auto p-2 rounded-xl bg-blue-400"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     className: "text-sm text-white"
   }, "Player 2: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("select", {
+    name: "playerTwo",
+    value: playerNames.playerTwo,
+    onChange: handleChange,
     className: "w-16 text-xs border-0 focus:outline-none"
-  }, playerTwoList))))));
+  }, playerTwoList))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "history"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "History"))));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Battle);
